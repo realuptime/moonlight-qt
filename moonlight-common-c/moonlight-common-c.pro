@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT -= core gui
-
+QMAKE_CXX = g++
 TARGET = moonlight-common-c
 TEMPLATE = lib
 
@@ -39,8 +39,9 @@ unix:!macx {
     CONFIG += link_pkgconfig
     PKGCONFIG += openssl
     DEFINES += HAVE_CLOCK_GETTIME=1
+	INCLUDEPATH += /usr/include/thrust/detail
 }
-
+QMAKE_EXT_CPP = "VideoStream.c"
 COMMON_C_DIR = $$PWD/moonlight-common-c
 ENET_DIR = $$COMMON_C_DIR/enet
 RS_DIR = $$COMMON_C_DIR/reedsolomon
@@ -74,13 +75,16 @@ SOURCES += \
     $$COMMON_C_DIR/src/SdpGenerator.c \
     $$COMMON_C_DIR/src/SimpleStun.c \
     $$COMMON_C_DIR/src/VideoDepacketizer.c \
-    $$COMMON_C_DIR/src/VideoStream.c
+    $$COMMON_C_DIR/src/VideoStream.c \
+	$$COMMON_C_DIR/scream/ScreamRx.cpp \
+	$$COMMON_C_DIR/scream/ScreamWrapper.cpp
 HEADERS += \
     $$COMMON_C_DIR/src/Limelight.h
 INCLUDEPATH += \
     $$RS_DIR \
     $$ENET_DIR/include \
-    $$COMMON_C_DIR/src
+    $$COMMON_C_DIR/src \
+	$$COMMON_C_DIR/scream
 DEFINES += HAS_SOCKLEN_T
 
 CONFIG(debug, debug|release) {
@@ -88,7 +92,8 @@ CONFIG(debug, debug|release) {
     DEFINES += LC_DEBUG
 }
 
+
 # Older GCC versions defaulted to GNU89
 *-g++ {
-    QMAKE_CFLAGS += -std=gnu99
+    QMAKE_CFLAGS += -std=c++0x
 }
