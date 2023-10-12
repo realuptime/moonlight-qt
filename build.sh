@@ -1,2 +1,2 @@
 rm app/moonlight
-make
+make release
