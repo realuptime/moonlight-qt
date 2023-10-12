@@ -1,0 +1,2 @@
+rm app/moonlight
+make
