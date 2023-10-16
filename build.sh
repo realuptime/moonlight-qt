@@ -1,3 +1,7 @@
 rm app/moonlight
-make release -j12
+
+CONF=release
+#CONF=debug
+
+make $CONF -j12
 
