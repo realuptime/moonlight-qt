@@ -1,3 +1,3 @@
-./app/moonlight | tee -i x
+stdbuf --output=L ./app/moonlight | tee -i x
 #gdb --args ./app/moonlight
 

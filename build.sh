@@ -1,3 +1,3 @@
 rm app/moonlight
-make release
+make release -j12
 
