@@ -1,6 +1,3 @@
-[submodule "moonlight-common-c/moonlight-common-c"]
-	path = moonlight-common-c/moonlight-common-c
-	url = https://gitlab.devops.telekom.de/aml/poc/sunshine/moonlight-common-c.git
 [submodule "qmdnsengine/qmdnsengine"]
 	path = qmdnsengine/qmdnsengine
 	url = https://github.com/cgutman/qmdnsengine.git
@@ -17,3 +14,7 @@
 	path = libs
 	url = https://github.com/cgutman/moonlight-qt-prebuilts.git
 	shallow = true
+[submodule "moonlight-common-c/moonlight-common-c"]
+	path = moonlight-common-c/moonlight-common-c
+	url = https://github.com/realuptime/moonlight-common-c.git
+	branch = master
